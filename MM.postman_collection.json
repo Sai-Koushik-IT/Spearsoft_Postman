@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "339941eb-d6b6-4a99-8687-daa9eb475f07",
+		"name": "MM Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29071784"
+	},
+	"item": [
+		{
+			"name": "Automation",
+			"item": [
+				{
+					"name": "Get Order",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// var responseData = pm.response.json();",
+									"// var MaximumStatus = responseData.MaximumStatus;",
+									"",
+									"// if (MaximumStatus !== \"1000\") {",
+									"//     pm.collectionVariables.set(\"orderId\", responseData.data[0].OrderId);",
+									"// } else {",
+									"//     console.log(\"MaximumStatus  is 1000.\");",
+									"// }",
+									"",
+									"",
+									"var responseData = pm.response.json();",
+									"var maximumStatus = responseData.MaximumStatus;",
+									"if (maximumStatus !== \"1000\") {",
+									"    pm.collectionVariables.set(\"orderId\", responseData.data[0].OrderId);",
+									"} else {",
+									"    pm.collectionVariables.set(\"orderId\", \"\"); ",
+									"}",
+									"",
+									"",
+									"",
+									"// var responseData = pm.response.json();",
+									"// var Max_status = responseData.data[0].MaximumStatus;",
+									"// pm.test(\"Maximum status is 1000\", function() {",
+									"//     pm.expect(Max_status).to.eql(\"1000\");",
+									"// });",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 2000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyT3JncyI6WyJJbmRpYW5hcG9saXNGYWNpbGl0eSJdLCJ1c2VyX25hbWUiOiJSU1VNTElOIiwidXNlckxvY2F0aW9ucyI6W3sibG9jYXRpb25JZCI6IkluZGlhbmFwb2xpc0ZhY2lsaXR5IiwibG9jYXRpb25UeXBlIjoiZHVtbXkifV0sImxvY2FsZSI6ImVuIiwiZXhjbHVkZWRVc2VyQnVzaW5lc3NVbml0cyI6W10sImF1dGhvcml0aWVzIjpbIlJPTEVfSVQgU3VwcG9ydCIsIlJPTEVfcmVwb3J0aW5nX0N1c3RvbWVyQXV0aG9yIl0sImNsaWVudF9pZCI6InBvc3RtYW4uMS4wLjAiLCJ1c2VyVGltZVpvbmUiOiJVUy9FYXN0ZXJuIiwiZWRnZSI6MCwic2NvcGUiOlsib21uaSIsInBvc3RtYW4iXSwib3JnYW5pemF0aW9uIjoiSW5kaWFuYXBvbGlzRmFjaWxpdHkiLCJhY2Nlc3N0b0FsbEJVcyI6ZmFsc2UsInRlbmFudElkIjoiYnJ3a3NzZjExbyIsImV4cCI6MTY5Mjk3ODI0MiwidXNlckRlZmF1bHRzIjpbeyJkZWZhdWx0TG9jYXRpb24iOiJJbmRpYW5hcG9saXNGYWNpbGl0eSIsImRlZmF1bHRPcmdhbml6YXRpb24iOiJJbmRpYW5hcG9saXNGYWNpbGl0eSIsImRlZmF1bHRCdXNpbmVzc1VuaXQiOm51bGx9XSwianRpIjoiZWE5OGZkYTAtZjk3YS00ZWEwLWFiM2MtNTVmZDVmYzgyYjFmIiwidXNlckJ1c2luZXNzVW5pdHMiOltdfQ.cE52AzddNE1NoCy4QKcOq5OHwnJ1308IY84479xfbDzptJlEyWmvMlJm4N-I-Z9sAnC5JDK34xZvumoHqDPF4SJTe5XBjZV_lbGAI-rPRhyuKm3jhDVcGDytKJWdMX3bNHKrzNCJZ-adqVP5tawNthUPG_oOryXvoo1PRaKwLCDaCz9KquKeexJcIZ5jOOUiPjMJ9UbomZE4Fg-vVAjnH4qkiFF9DZH6GrtHzoxfRwuE-i0LXDeDMK4alr8y3cT-kOTL-JRTJlFEVEQgEB_2ptQV4OHqjL_U3bYYFtk4PDMj3ntIOXLe9sG-yUzK719ID5ednknwW-4ZanOYkOxiAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic b21uaWNvbXBvbmVudC4xLjAuMDpiNHM4cmdUeWc1NVhZTnVu",
+								"disabled": true
+							},
+							{
+								"key": "selectedLocation",
+								"value": "IndianapolisFacility",
+								"type": "default"
+							},
+							{
+								"key": "selectedOrganization",
+								"value": "IndianapolisFacility",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Query\": \"OrderId = 'MM-52104021'\",\r\n    \"Size\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://brwks.sce.manh.com/dcorder/api/dcorder/order/search",
+							"protocol": "https",
+							"host": [
+								"brwks",
+								"sce",
+								"manh",
+								"com"
+							],
+							"path": [
+								"dcorder",
+								"api",
+								"dcorder",
+								"order",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExecuteWave",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 2000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyT3JncyI6WyJJbmRpYW5hcG9saXNGYWNpbGl0eSJdLCJ1c2VyX25hbWUiOiJSU1VNTElOIiwidXNlckxvY2F0aW9ucyI6W3sibG9jYXRpb25JZCI6IkluZGlhbmFwb2xpc0ZhY2lsaXR5IiwibG9jYXRpb25UeXBlIjoiZHVtbXkifV0sImxvY2FsZSI6ImVuIiwiZXhjbHVkZWRVc2VyQnVzaW5lc3NVbml0cyI6W10sImF1dGhvcml0aWVzIjpbIlJPTEVfSVQgU3VwcG9ydCIsIlJPTEVfcmVwb3J0aW5nX0N1c3RvbWVyQXV0aG9yIl0sImNsaWVudF9pZCI6InBvc3RtYW4uMS4wLjAiLCJ1c2VyVGltZVpvbmUiOiJVUy9FYXN0ZXJuIiwiZWRnZSI6MCwic2NvcGUiOlsib21uaSIsInBvc3RtYW4iXSwib3JnYW5pemF0aW9uIjoiSW5kaWFuYXBvbGlzRmFjaWxpdHkiLCJhY2Nlc3N0b0FsbEJVcyI6ZmFsc2UsInRlbmFudElkIjoiYnJ3a3NzZjExbyIsImV4cCI6MTY5Mjk3ODI0MiwidXNlckRlZmF1bHRzIjpbeyJkZWZhdWx0TG9jYXRpb24iOiJJbmRpYW5hcG9saXNGYWNpbGl0eSIsImRlZmF1bHRPcmdhbml6YXRpb24iOiJJbmRpYW5hcG9saXNGYWNpbGl0eSIsImRlZmF1bHRCdXNpbmVzc1VuaXQiOm51bGx9XSwianRpIjoiZWE5OGZkYTAtZjk3YS00ZWEwLWFiM2MtNTVmZDVmYzgyYjFmIiwidXNlckJ1c2luZXNzVW5pdHMiOltdfQ.cE52AzddNE1NoCy4QKcOq5OHwnJ1308IY84479xfbDzptJlEyWmvMlJm4N-I-Z9sAnC5JDK34xZvumoHqDPF4SJTe5XBjZV_lbGAI-rPRhyuKm3jhDVcGDytKJWdMX3bNHKrzNCJZ-adqVP5tawNthUPG_oOryXvoo1PRaKwLCDaCz9KquKeexJcIZ5jOOUiPjMJ9UbomZE4Fg-vVAjnH4qkiFF9DZH6GrtHzoxfRwuE-i0LXDeDMK4alr8y3cT-kOTL-JRTJlFEVEQgEB_2ptQV4OHqjL_U3bYYFtk4PDMj3ntIOXLe9sG-yUzK719ID5ednknwW-4ZanOYkOxiAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Basic b21uaWNvbXBvbmVudC4xLjAuMDpiNHM4cmdUeWc1NVhZTnVu"
+							},
+							{
+								"key": "selectedLocation",
+								"value": "IndianapolisFacility",
+								"type": "default"
+							},
+							{
+								"key": "selectedOrganization",
+								"value": "IndianapolisFacility",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"PlanningStrategyId\": \"BRWKStandardOrderParcel\",\r\n        \"orderId\": \"{{orderId}}\",\r\n        \"OrderPlanningRunId\": \"\",\r\n        \"IsChase\": false,\r\n        \"Orders\": []\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://brwks.sce.manh.com/dmui-facade/api/dmui-facade/dcorder/orderPlanningByOrders/executeRun",
+							"protocol": "https",
+							"host": [
+								"brwks",
+								"sce",
+								"manh",
+								"com"
+							],
+							"path": [
+								"dmui-facade",
+								"api",
+								"dmui-facade",
+								"dcorder",
+								"orderPlanningByOrders",
+								"executeRun"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order_CS",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = pm.response.json();",
+									"var max_status = responseData.data[0].MaximumStatus;",
+									"pm.test(\"Maximum status is 2090\", function() {",
+									"    pm.expect(max_status).to.eql(\"2090\");",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 2000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyT3JncyI6WyJJbmRpYW5hcG9saXNGYWNpbGl0eSJdLCJ1c2VyX25hbWUiOiJSU1VNTElOIiwidXNlckxvY2F0aW9ucyI6W3sibG9jYXRpb25JZCI6IkluZGlhbmFwb2xpc0ZhY2lsaXR5IiwibG9jYXRpb25UeXBlIjoiZHVtbXkifV0sImxvY2FsZSI6ImVuIiwiZXhjbHVkZWRVc2VyQnVzaW5lc3NVbml0cyI6W10sImF1dGhvcml0aWVzIjpbIlJPTEVfSVQgU3VwcG9ydCIsIlJPTEVfcmVwb3J0aW5nX0N1c3RvbWVyQXV0aG9yIl0sImNsaWVudF9pZCI6InBvc3RtYW4uMS4wLjAiLCJ1c2VyVGltZVpvbmUiOiJVUy9FYXN0ZXJuIiwiZWRnZSI6MCwic2NvcGUiOlsib21uaSIsInBvc3RtYW4iXSwib3JnYW5pemF0aW9uIjoiSW5kaWFuYXBvbGlzRmFjaWxpdHkiLCJhY2Nlc3N0b0FsbEJVcyI6ZmFsc2UsInRlbmFudElkIjoiYnJ3a3NzZjExbyIsImV4cCI6MTY5Mjk3ODI0MiwidXNlckRlZmF1bHRzIjpbeyJkZWZhdWx0TG9jYXRpb24iOiJJbmRpYW5hcG9saXNGYWNpbGl0eSIsImRlZmF1bHRPcmdhbml6YXRpb24iOiJJbmRpYW5hcG9saXNGYWNpbGl0eSIsImRlZmF1bHRCdXNpbmVzc1VuaXQiOm51bGx9XSwianRpIjoiZWE5OGZkYTAtZjk3YS00ZWEwLWFiM2MtNTVmZDVmYzgyYjFmIiwidXNlckJ1c2luZXNzVW5pdHMiOltdfQ.cE52AzddNE1NoCy4QKcOq5OHwnJ1308IY84479xfbDzptJlEyWmvMlJm4N-I-Z9sAnC5JDK34xZvumoHqDPF4SJTe5XBjZV_lbGAI-rPRhyuKm3jhDVcGDytKJWdMX3bNHKrzNCJZ-adqVP5tawNthUPG_oOryXvoo1PRaKwLCDaCz9KquKeexJcIZ5jOOUiPjMJ9UbomZE4Fg-vVAjnH4qkiFF9DZH6GrtHzoxfRwuE-i0LXDeDMK4alr8y3cT-kOTL-JRTJlFEVEQgEB_2ptQV4OHqjL_U3bYYFtk4PDMj3ntIOXLe9sG-yUzK719ID5ednknwW-4ZanOYkOxiAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic b21uaWNvbXBvbmVudC4xLjAuMDpiNHM4cmdUeWc1NVhZTnVu",
+								"disabled": true
+							},
+							{
+								"key": "selectedLocation",
+								"value": "IndianapolisFacility",
+								"type": "default"
+							},
+							{
+								"key": "selectedOrganization",
+								"value": "IndianapolisFacility",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Query\": \"OrderId = '{{orderId}}'\",\r\n    \"Size\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://brwks.sce.manh.com/dcorder/api/dcorder/order/search",
+							"protocol": "https",
+							"host": [
+								"brwks",
+								"sce",
+								"manh",
+								"com"
+							],
+							"path": [
+								"dcorder",
+								"api",
+								"dcorder",
+								"order",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "orderId",
+			"value": ""
+		}
+	]
+}
